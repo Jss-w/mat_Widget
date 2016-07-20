@@ -1,2 +1,2 @@
 # Js_plugin
-myPackageUer
+个人插件收藏，一些常用的和自己写的小框架

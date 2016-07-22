@@ -9,8 +9,8 @@
 // 0/1维护思路：后期增加配置属性用于CP端，变为报错后不停止检测
 // 0/1维护思路：增加校验规则配置
 // 判断全局变量是否存在
-if (typeof jssWidget == 'undefined') {
-    var jssWidget = {};
+if (typeof matWidget == 'undefined') {
+    var matWidget = {};
 }
 // 插件内容，兼容jquery,zepto
 ;(function($){
@@ -77,14 +77,14 @@ if (typeof jssWidget == 'undefined') {
     * list: 验证表单依赖
     * callBack: 回调函数用于报错的接口返回报错文案msg
     */
-    jssWidget.validate = function($el,list,callBack){
+    matWidget.matWidget = function($el,list,callBack){
         return plugin.init($el,list,callBack)
     };
 })(!!window.jQuery?jQuery:'' || !!window.Zepto?Zepto:'');
 // 调用方法
 /*
 function ssasdf($el) {
-    return jssWidget.validate($el,{
+    return matWidget.matWidget($el,{
         rules: {
             phone: {
                 require:true,

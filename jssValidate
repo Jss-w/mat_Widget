@@ -5,7 +5,10 @@
  * Author: luj
  * Date: 2016-05-30 10:39:00
  */
-// 判断全局变量是否存在，暂时只能用于手机版
+// 暂时只能用于手机版，报错后停止检测
+// 0/1维护思路：后期增加配置属性用于CP端，变为报错后不停止检测
+// 0/1维护思路：增加校验规则配置
+// 判断全局变量是否存在
 if (typeof jssWidget == 'undefined') {
     var jssWidget = {};
 }
@@ -38,7 +41,9 @@ if (typeof jssWidget == 'undefined') {
         valid:function($el, rules, msg, callBack){
             var self = this,
                 isPass = true,
+                self.topwd.el = $el,
                 $elem;
+
             $.each(rules, function(i, obj){
                 if(i == 'daddress'){    // 详细地址textarea
                     $elem = $el.find('textarea[name='+i+']');
@@ -62,7 +67,7 @@ if (typeof jssWidget == 'undefined') {
             return isPass;
         },
         init: function($el,list,callBack){
-            this.topwd.el = $el;
+            // 此处用于解耦，后期有合并到valid的可能性
             return this.valid($el,list.rules, list.msg, callBack);
         }
     };

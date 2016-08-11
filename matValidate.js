@@ -77,7 +77,7 @@ if (typeof matWidget == 'undefined') {
     * list: 验证表单依赖
     * callBack: 回调函数用于报错的接口返回报错文案msg
     */
-    matWidget.matWidget = function($el,list,callBack){
+    matWidget.validate = function($el,list,callBack){
         return plugin.init($el,list,callBack)
     };
 })(!!window.jQuery?jQuery:'' || !!window.Zepto?Zepto:'');

@@ -2,7 +2,7 @@
  * Copyright (c) 2016
  * 弹窗事件组件
  * Author: luj
- * Date: 2016-05-30 10:39:00
+ * Date: 2016-08-11 10:39:00
  */
 // 判断全局变量是否存在
 if (typeof matWidget == 'undefined') {
@@ -10,7 +10,7 @@ if (typeof matWidget == 'undefined') {
 }
 // 插件内容，兼容jquery,zepto
 ;(function($){
-    var plugins = {
+    var plugin = {
         // 提示弹窗
         tipWin: function(msg,time){
             var self = this,
@@ -178,14 +178,14 @@ if (typeof matWidget == 'undefined') {
     //     }
     // }
     // 默认组装dom
-    plugins.matDom();
+    plugin.matDom();
     // 对外暴露接口-提示报错信息弹窗第二参数为弹窗停留时间
     /*
     * msg-弹窗文案(必填)
     * time-弹窗停留时间
     */
-    matWidget.bombAlert = function(msg,time){
-        return plugins.tipWin(msg,time);
+    matWidget.alert = function(msg,time){
+        return plugin.tipWin(msg,time);
     };
     // 对外暴露接口-确认弹窗/取消弹窗
     /*
@@ -195,23 +195,23 @@ if (typeof matWidget == 'undefined') {
     * yesTxt-弹窗是按钮(右侧)
     * yesCallback-点击是后的回调
     */
-    matWidget.bombConfirm = function(txt,noTxt,noCallback,yesTxt,yesCallback){
-        return plugins.confirmWin(txt,noTxt,noCallback,yesTxt,yesCallback);
+    matWidget.confirm = function(txt,noTxt,noCallback,yesTxt,yesCallback){
+        return plugin.confirmWin(txt,noTxt,noCallback,yesTxt,yesCallback);
     };
     // 对外暴露接口-确认弹窗/取消弹窗
     /*
     * $el-选中的弹出元素对象
     * html-自定义的html未实现
     */
-    matWidget.bombSlideBottom = function($el,html){
-        return plugins.slideBottom($el,html);
+    matWidget.slideBottom = function($el,html){
+        return plugin.slideBottom($el,html);
     };
     // 对外暴露接口-确认弹窗/取消弹窗
     /*
     * $el-选中的弹出元素对象
     */
-    matWidget.bombSlideRight = function($el){
-        return plugins.slideRight($el);
+    matWidget.slideRight = function($el){
+        return plugin.slideRight($el);
     };
 })(!!window.jQuery?jQuery:'' || !!window.Zepto?Zepto:'');
 // 调用方法

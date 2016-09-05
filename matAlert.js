@@ -20,7 +20,7 @@ if (typeof matWidget == 'undefined') {
 
             // 调用时查看是否存在dom结构
             if($txt.length == 0){
-                $module.append('<div class="mat-tip"><div class="mat-tipMsg">'+endMsg+'</div></div>');
+                $matWin.append('<div class="mat-tip"><div class="mat-tipMsg">'+msg+'</div></div>');
             }else{
                 $matWin.find('.mat-tipMsg').html(msg);
             }
@@ -89,7 +89,7 @@ if (typeof matWidget == 'undefined') {
         slideBottom: function($el,html){
             var self = this,
                 $body = $('body'),
-                $module = $('.J_matwin'),
+                $matWin = $('.J_matwin'),
                 $close = $el.find('.J_close'),
                 $pannel = $el.find('.mat-slidePannel')
                 $html = html || ''; // 自定义内容元素，填充非每次都填充，未作
@@ -97,39 +97,39 @@ if (typeof matWidget == 'undefined') {
             // 基础值展示
             $el.show();
             $pannel.css({top: '100%'});
-            $module.addClass('active');
+            $matWin.addClass('active');
             $body.addClass('ofhide');
 
             self.showSlide($pannel,'top');
-            $module.off('click').on('click',function(){
-                self.hideSlide($pannel,$el,$module,$body,'top');
+            $matWin.off('click').on('click',function(){
+                self.hideSlide($pannel,$el,$matWin,$body,'top');
             });
             // 后期优化
             $close.off('click').on('click',function(){
-                self.hideSlide($pannel,$el,$module,$body,'top');
+                self.hideSlide($pannel,$el,$matWin,$body,'top');
             });
         },
         // 右侧滑入弹窗
         slideRight: function($el){
             var self = this,
                 $body = $('body'),
-                $module = $('.J_matwin'),
+                $matWin = $('.J_matwin'),
                 $close = $el.find('.J_close'),
                 $pannel = $el.find('.mat-slidePannel');
 
             // 基础值展示
             $el.show();
             $pannel.css({left: '100%'});
-            $module.addClass('active');
+            $matWin.addClass('active');
             $body.addClass('ofhide');
 
             self.showSlide($pannel,'left');
-            $module.off('click').on('click',function(){
-                self.hideSlide($pannel,$el,$module,$body,'left');
+            $matWin.off('click').on('click',function(){
+                self.hideSlide($pannel,$el,$matWin,$body,'left');
             });
             // 后期优化
             $close.off('click').on('click',function(){
-                self.hideSlide($pannel,$el,$module,$body,'left');
+                self.hideSlide($pannel,$el,$matWin,$body,'left');
             });
         },
         // 滑入共享事件
@@ -143,14 +143,14 @@ if (typeof matWidget == 'undefined') {
                 }
             },200);
         },
-        hideSlide: function($pannel,$el,$module,$body,side){
+        hideSlide: function($pannel,$el,$matWin,$body,side){
             setTimeout(function() {
                 if(side === 'top') {
                     $pannel.css({top: '100%'});
                 }else if(side === 'left') {
                     $pannel.css({left: '100%'});
                 }
-                $module.removeClass('active');
+                $matWin.removeClass('active');
                 $body.removeClass('ofhide');
                 setTimeout(function(){
                     $el.hide();
@@ -198,7 +198,7 @@ if (typeof matWidget == 'undefined') {
     matWidget.confirm = function(txt,noTxt,noCallback,yesTxt,yesCallback){
         return plugin.confirmWin(txt,noTxt,noCallback,yesTxt,yesCallback);
     };
-    // 对外暴露接口-确认弹窗/取消弹窗
+    // 对外暴露接口-底部滑入/取消弹窗
     /*
     * $el-选中的弹出元素对象
     * html-自定义的html未实现
@@ -206,7 +206,7 @@ if (typeof matWidget == 'undefined') {
     matWidget.slideBottom = function($el,html){
         return plugin.slideBottom($el,html);
     };
-    // 对外暴露接口-确认弹窗/取消弹窗
+    // 对外暴露接口-右侧滑入/取消弹窗
     /*
     * $el-选中的弹出元素对象
     */

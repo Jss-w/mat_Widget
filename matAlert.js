@@ -91,7 +91,9 @@ if (typeof matWidget == 'undefined') {
                 $body = $('body'),
                 $matWin = $('.J_matwin'),
                 $close = $el.find('.J_close'),
-                $pannel = $el.find('.mat-slidePannel')
+                $pannel = $el.find('.mat-slidePannel'),
+
+                $txt = $matWin.find('.mat-tip').addClass('hide'),
                 $html = html || ''; // 自定义内容元素，填充非每次都填充，未作
 
             // 基础值展示

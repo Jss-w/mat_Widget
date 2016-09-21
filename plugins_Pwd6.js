@@ -10,6 +10,8 @@ if (typeof matWidget == 'undefined') {
 }
 // 插件内容，兼容jquery
 // each方法问题，只能兼容jquery--后期修改
+// 1.输入完毕后是否隐藏
+// 2.再次调用时初始化问题
 ;(function($){
     var plugin = {
         saveCode: '',
@@ -89,6 +91,7 @@ if (typeof matWidget == 'undefined') {
         pwdSub: function(callBack) {
             var self = this;
             callBack(self.saveCode);
+            self.saveCode = 0;
         },
 
         // 依赖dom结构

@@ -6,7 +6,7 @@
     height: 100%;
     border-left: 1px solid #cbcbcb;
     top: 0;
-    left: -1px;
+    left: 0;
     transform: scaleX(0.5);
     -webkit-transform: scaleX(0.5);
     z-index: 10;
@@ -41,6 +41,7 @@
     width: 2.4rem;
     height: .4rem;
     background: #fff;
+    clear: both;
 }
 
 .s_input span:last-child{
